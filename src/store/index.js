@@ -3,6 +3,8 @@ import Vuex from 'vuex'
 import axios from 'axios'
 import * as types from './mutation-types'
 import book from './module/book'
+import city from './module/city'
+import movie from './module/movie'
 
 Vue.use(Vuex)
 // 本应用主要划分为四个模块：读书、电影、音乐、同城活动，有些模块下面划分了更小的模块，如读书模块还有'按标签分类'和'按类型分类'子模块
@@ -23,7 +25,37 @@ const moduleTypes = [
   		text:'按类型分类',
   		path:'book-type'
   	}]
-  }]
+  },
+  {
+    value: 'city',
+    text: '同城',
+    logo: 'city-logo',
+    searchIcon: 'city-search-icon',
+    placeholder: 'sorry, 同城活动暂无搜索功能',
+    backgroundColor: '#f6f5f2',
+    subTypes: [{
+      text: '按城市分类',
+      path: 'city'
+    }]
+  },
+  {
+    value: 'movie',
+    text: '电影',
+    field: 'subjects',
+    logo: 'movie-logo',
+    searchIcon: 'movie-search-icon',
+    placeholder: '电影、影人、影院、电视剧',
+    backgroundColor: '#f0f3f5',
+    subTypes: [{
+      text: '按时间分类',
+      path: 'movie-show-time'
+    }, {
+      text: '按标签分类',
+      path: 'movie-tag'
+    }]
+  }
+
+]
 
 const state={
 	moduleTypes,
@@ -60,6 +92,8 @@ export default new Vuex.Store({
 	mutations,
 	actions,
 	modules:{
-		book
+		book,
+    city,
+    movie
 	}
 })

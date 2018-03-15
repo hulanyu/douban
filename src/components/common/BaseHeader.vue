@@ -331,7 +331,7 @@ export default {
     width: 0;
     height: 0;
     margin-top: -10px;
-    margin-left: calc(50% - 10px);
+    margin-left: calc(50% - 54px);
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-bottom: 10px solid white;
